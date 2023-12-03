@@ -1,0 +1,85 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Function prototype
+double calcMPG(double, double);
+
+int main()
+{
+    string car1, car2, car3;
+    double gallons1, gallons2, gallons3;
+    double distance = 500;
+
+    cout << "Enter car model for car 1: " << endl;
+    cin >> car1;
+    cout << "Enter gallons of fuel for car 1: ";
+    cin >> gallons1;
+
+    cout << "\n"; // skipping line for clear output.
+
+    cout << "Enter car model for car 2: " << endl;
+    cin >> car2;
+    cout << "Enter gallons of fuel for car 2: ";
+    cin >> gallons2;
+
+    cout << "\n";// skipping line for clear output.
+
+    cout << "Enter car model for car 3: " << endl;
+    cin >> car3;
+    cout << "Enter gallons of fuel for car 3: ";
+    cin >> gallons3;
+
+    cout << "\n"; // skipping line for clear output.
+
+
+
+    // Calculate miles per gallon for each car
+    double MPG1 = calcMPG(distance, gallons1);
+    double MPG2 = calcMPG(distance, gallons2);
+    double MPG3 = calcMPG(distance, gallons3);
+
+
+    // Display the miles per gallon for each car
+    cout << "*** Each cars MPG ***" << endl;
+    cout << "Car 1 MPG: " << setprecision(2) << MPG1 << endl;
+    cout << "Car 2 MPG: " << setprecision(2) << MPG2 << endl;
+    cout << "Car 3 MPG: " << setprecision(2) << MPG3 << endl;
+
+    string mostFuelEfficientCar;
+    double highestMPG = 0.0;
+
+    // calculating whci car has the most fuel-efficient car
+
+    if (MPG1 >= MPG2 && MPG1 >= MPG3) {
+        mostFuelEfficientCar = car1;
+        highestMPG = MPG1;
+    }
+    else if (MPG2 >= MPG1 && MPG2 >= MPG3) {
+        mostFuelEfficientCar = car2;
+        highestMPG = MPG2;
+    }
+    else {
+        mostFuelEfficientCar = car3;
+        highestMPG = MPG3;
+    }
+
+    // Output  most Fuel Efficient
+    cout << endl; //Skipping line
+    cout << mostFuelEfficientCar << " has the highest " << highestMPG << " miles per gallon." << std::endl;
+
+
+    return 0;
+}
+
+double calcMPG(double distance, double gallons) // calculate miles per gallon
+{
+    if (gallons != 0)
+    {
+        return distance / gallons;
+    }
+    else
+    {
+        return 0.0;
+    }
+}
